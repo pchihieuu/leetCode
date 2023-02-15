@@ -1,0 +1,44 @@
+import java.util.*;
+
+class T {
+    public String word;
+    public int freq;
+    // Defaul constuctor//
+    public T() {
+
+    }
+    // Constructor//
+    public T(String word, int freq) {
+        this.word = word;
+        this.freq = freq;
+    }
+}
+class Solution {
+    /// 692. Top K Frequent Words
+    // author: Phan Chí Hiếu
+    // github: https://github.com/Phanhieu1221
+    /*https://leetcode.com/problems/top-k-frequent-words */
+    public List<String> topKFrequent(String[] words, int k) {
+        List<String> ans = new ArrayList<>();
+        Map<String, Integer> count = new HashMap<>();
+        // Words w/ higher frequency and lower alphabetical order are in the bottom
+        // Of the heap, because we'll pop words w/ lower frequency and higher
+        // Alphabetical order if the heap's size > k
+
+        Queue<T> heap = new PriorityQueue<>((a, b) -> a.freq == b.freq ? b.word.compareTo(a.word) : a.freq - b.freq);
+        for(final String word : words)
+            count.put(word, count.getOrDefault(word, 0) + 1);
+        for(final String word : count.keySet()) {
+            heap.offer(new T(word, count.get(word)));
+            if(heap.size() > k) {
+                heap.poll();
+            }
+        }
+        while(!heap.isEmpty())
+            ans.add(heap.poll().word);
+        Collections.reverse(ans);
+        return ans;
+    }
+    
+    
+}
