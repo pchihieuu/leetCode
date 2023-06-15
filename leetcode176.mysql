@@ -1,0 +1,11 @@
+# Write your MySQL query statement below
+--
+-- @lc app=leetcode id=176 lang=mysql
+--
+-- [176] Second Highest Salary
+--
+
+-- @lc code=start
+# Write your MySQL query statement below
+select max(Salary) as SecondHighestSalary from Employee where Salary < (select max(Salary) from Employee);
+-- @lc code=end
