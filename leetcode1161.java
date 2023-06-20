@@ -1,19 +1,8 @@
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-class Solution {
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class leetcode1161 {
     public int maxLevelSum(TreeNode root) {
         int ans = 1;
         int maxLevelSum = Integer.MIN_VALUE;
@@ -38,3 +27,15 @@ class Solution {
     return ans;
     }
 }
+class TreeNode {
+      int val;
+      TreeNode left;
+      TreeNode right;
+      TreeNode() {}
+      TreeNode(int val) { this.val = val; }
+      TreeNode(int val, TreeNode left, TreeNode right) {
+          this.val = val;
+          this.left = left;
+          this.right = right;
+      }
+  }
